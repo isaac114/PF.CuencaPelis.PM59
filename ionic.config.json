@@ -1,0 +1,7 @@
+{
+  "name": "PF.CuencaPelis.PM59",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
