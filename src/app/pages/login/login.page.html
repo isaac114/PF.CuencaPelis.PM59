@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CuencaPelis+ Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--Inputs Entrada de datos  Correo y Contrasena-->
+  <div id="espacio">
+    <div id="centrarInput">
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+    </div>
+  
+    <div id="centrarInput">
+      <ion-item>
+        <ion-label position="floating" >Contrasena</ion-label>
+        <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+      </ion-item>
+    </div>
+  </div>
+
+  <!--Boton para aceptar la entrada de datos-->
+  <div id="centrarBoton">
+    <ion-button  expand="block" color="danger" (click)="validarUsuario()">Log In</ion-button>
+  </div>
+  
+  
+
+</ion-content>
