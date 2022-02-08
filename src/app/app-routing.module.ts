@@ -20,9 +20,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/User/Movies/principal/principal.module').then( m => m.PrincipalPageModule)
   },
   {
-    path: 'movie-details/:id',
+    path: 'movie-details/:id/:idUser',
     loadChildren: () => import('./pages/User/Movies/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
+  },
+  {
+    path: 'movie-details',
+    loadChildren: () => import('./pages/User/Movies/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
+  },  {
+    path: 'agregar-resena',
+    loadChildren: () => import('./pages/User/Resenas/agregar-resena/agregar-resena.module').then( m => m.AgregarResenaPageModule)
   }
+
 
 
 

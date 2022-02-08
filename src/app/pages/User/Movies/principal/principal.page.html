@@ -27,7 +27,8 @@
 		<ion-item
 			button
 			*ngFor="let item of (results | async)"
-			[routerLink]="['/', 'movie-details', item.imdbID]"
+			(click)="enviar(item.imdbID)"
+			
 		>
 			<ion-avatar slot="start">
 				<img [src]="item.Poster" *ngIf="item.Poster != 'N/A'" />

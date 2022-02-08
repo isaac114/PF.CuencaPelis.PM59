@@ -8,18 +8,35 @@ import firebase from 'firebase/compat/app';
   providedIn: 'root'
 })
 export class AuthGoogleService {
+  credential: string;
 
   constructor(public auth: AngularFireAuth,
     private afs: AngularFirestore) { }
 
   async loginGoogle() {
     //this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    const credential = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    console.log(credential.user);
-    let user =JSON.parse(JSON.stringify(credential.user));
-    console.log(user);
-    this.updateDtaUser(user);
+    
+    
+    return this.credential;
+    
   }
+
+  login(){
+
+    //return una promesa
+    return new Promise((resolve, rejected) =>{
+      this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(user => {
+        //console.log(user.user);
+        let userr =JSON.parse(JSON.stringify(user.user));
+        this.credential = userr.uid;
+        //console.log(userr.uid);
+        this.loginGoogle();
+        this.updateDtaUser(userr);
+        resolve(this.credential);
+        
+      }).catch(err => rejected(err));
+    });   
+}
 
   logout() {
     this.auth.signOut();
