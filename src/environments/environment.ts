@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  API_URL: 'http://www.omdbapi.com/',
+  API_KEY: 'fd4ae194',
   firebaseConfig : {
     apiKey: "AIzaSyAL-0fMKXH1H-dgvszO1MqWvBQ2xK_G1H0",
     authDomain: "cuencapelispf.firebaseapp.com",

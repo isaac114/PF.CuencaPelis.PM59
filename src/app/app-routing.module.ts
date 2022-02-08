@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: 'pages/login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'principal',
+    loadChildren: () => import('./pages/User/Movies/principal/principal.module').then( m => m.PrincipalPageModule)
   }
+
 
 ];
 
