@@ -18,7 +18,12 @@ const routes: Routes = [
   {
     path: 'principal',
     loadChildren: () => import('./pages/User/Movies/principal/principal.module').then( m => m.PrincipalPageModule)
+  },
+  {
+    path: 'movie-details/:id',
+    loadChildren: () => import('./pages/User/Movies/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
   }
+
 
 
 ];
