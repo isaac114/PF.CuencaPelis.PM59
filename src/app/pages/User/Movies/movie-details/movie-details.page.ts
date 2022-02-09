@@ -49,10 +49,10 @@ export class MovieDetailsPage implements OnInit {
 			  id: this.idPelicula,
 			  idUser: this.idUsuario,
 			}
-		  }
+		}
 		 
 	  
-		  this.router.navigate(['agregar-resena'],params)
+		this.router.navigate(['agregar-resena'],params)
   }
 
   openWebsite() {

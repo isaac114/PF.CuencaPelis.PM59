@@ -29,6 +29,10 @@ const routes: Routes = [
   },  {
     path: 'agregar-resena',
     loadChildren: () => import('./pages/User/Resenas/agregar-resena/agregar-resena.module').then( m => m.AgregarResenaPageModule)
+  },
+  {
+    path: 'listar-resenas',
+    loadChildren: () => import('./pages/User/Resenas/listar-resenas/listar-resenas.module').then( m => m.ListarResenasPageModule)
   }
 
 

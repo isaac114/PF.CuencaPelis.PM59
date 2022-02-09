@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Resena } from 'src/app/domain/resena';
 import { PeliculaService } from 'src/app/services/movies/pelicula.service';
 
@@ -53,6 +53,13 @@ export class AgregarResenaPage implements OnInit {
     this.resenaPelicula.comentario = this.resena;
     this.resenaPelicula.valoracion = 0;
     this.infoService.save(this.resenaPelicula);
+    let params: NavigationExtras = {
+			queryParams: {
+			  idPelicula: this.idPelicula,
+			  idUsuario: this.idUsuario,
+			}
+		}
+		this.router.navigate(['listar-resenas'],params)
   }
 
 }

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listarResenas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--<h1>Bienvenido {{contacto | json}}</h1>-->
+  <h1>Bienvenido </h1>
+  <ion-list>
+    <ion-list-header> Recent Conversations </ion-list-header>
+
+    <ion-item *ngFor="let resena of resenas | async">
+      <ion-avatar slot="start">
+        <img [src]="resena.poster" *ngIf="resena.poster != 'N/A'" />
+      </ion-avatar>
+      <ion-label >
+        <h2>{{ resena.title }}</h2>
+        <h3>{{ resena.valoracion }}</h3>
+        <p>{{ resena.comentario }}</p>
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
+
+</ion-content>

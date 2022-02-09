@@ -24,28 +24,29 @@ export class PeliculaService {
 
   url = environment.API_URL;
   apiKey = environment.API_KEY;
-  //  Constructor of the Service with Dependency Injection
-  //  @param http The standard Angular HttpClient to make requests
+  
   constructor(private http: HttpClient,
     private afs: AngularFirestore) {}
 
 
 
   save(res: Resena){
-    const refContactos = this.afs.collection('resenas')
+    const reResena = this.afs.collection('resenas')
   
     if(res.uid == null){
       res.uid = this.afs.createId()
     }
   
-    refContactos.doc(res.uid).set(Object.assign({}, res))
+    reResena.doc(res.uid).set(Object.assign({}, res))
   
   }
-  // Get data from the Omdb Api
-  // map the result to return only the results "Search" that we need
-  // @param {string} title Search Term
-  // @param {SearchType} type movie, series, episode or empty
-  // @returns Observable with the search results
+
+  getMisResenas(idUsuario: string): Observable<any[]>{
+    const reResena = this.afs.collection('resenas',
+    ref => ref.where("idUsuario","==",idUsuario));
+    return reResena.valueChanges();
+  }
+
   searchData(title: string, type: SearchType): Observable<OmdbSearchResult> {
     return this.http
       .get<Observable<OmdbSearchResult>>(
@@ -58,9 +59,7 @@ export class PeliculaService {
         })
       );
   }
-  // Get detailed information using the "i" (not "id") parameter
-  // @param {string} id imdbID to retrieve information
-  // @returns Observable with detailed information
+  
   getDetails(id: string): Observable<any> {
     return this.http
       .get<Observable<OmdbDetailResponse>>(
