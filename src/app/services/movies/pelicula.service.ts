@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map, tap } from "rxjs/operators";
+import { Resena } from 'src/app/domain/resena';
 import { OmdbDetailResponse, OmdbSearchResult } from 'src/app/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
@@ -24,8 +26,21 @@ export class PeliculaService {
   apiKey = environment.API_KEY;
   //  Constructor of the Service with Dependency Injection
   //  @param http The standard Angular HttpClient to make requests
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private afs: AngularFirestore) {}
 
+
+
+  save(res: Resena){
+    const refContactos = this.afs.collection('resenas')
+  
+    if(res.uid == null){
+      res.uid = this.afs.createId()
+    }
+  
+    refContactos.doc(res.uid).set(Object.assign({}, res))
+  
+  }
   // Get data from the Omdb Api
   // map the result to return only the results "Search" that we need
   // @param {string} title Search Term
