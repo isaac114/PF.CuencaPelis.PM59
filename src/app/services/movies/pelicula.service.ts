@@ -64,6 +64,6 @@ export class PeliculaService {
     return this.http
       .get<Observable<OmdbDetailResponse>>(
         `${this.url}?i=${id}&plot=full&apikey=${this.apiKey}`
-      ).pipe(tap(res => console.log("response: ", res)))
+      ).pipe(tap(res => console.log("DatosPelicula: ", res)))
   }
 }

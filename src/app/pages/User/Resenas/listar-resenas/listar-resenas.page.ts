@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Resena } from 'src/app/domain/resena';
+import { Usuario } from 'src/app/domain/usuario';
 import { PeliculaService } from 'src/app/services/movies/pelicula.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { PeliculaService } from 'src/app/services/movies/pelicula.service';
 export class ListarResenasPage implements OnInit {
   idPelicula: any;
   idUsuario: any;
+  usuario: Usuario;
   resena: Resena;
   resenas: any;
 
@@ -24,7 +26,8 @@ export class ListarResenasPage implements OnInit {
         if(this.router.getCurrentNavigation().extras.queryParams){
           this.idPelicula = this.router.getCurrentNavigation().extras.queryParams.idPelicula;
           this.idUsuario = this.router.getCurrentNavigation().extras.queryParams.idUsuario;
-          console.log('ListarMisResenas ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.idUsuario);
+          this.usuario = this.router.getCurrentNavigation().extras.queryParams.usuario;
+          console.log('ListarMisResenas ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.usuario.uid);
         }
       }) 
     }

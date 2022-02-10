@@ -49,4 +49,21 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <ion-list>
+    <ion-list-header> Resenas </ion-list-header>
+
+    <ion-item *ngFor="let resena of resenas | async">
+      <ion-avatar slot="start">
+        <img [src]="resena.poster" *ngIf="resena.poster != 'N/A'" />
+      </ion-avatar>
+      <ion-label >
+        <h2>{{ resena.title }}</h2>
+        <h3>{{ resena.valoracion }}</h3>
+        <p>{{ resena.comentario }}</p>
+      </ion-label>
+    </ion-item>
+
+    
+  </ion-list>
 </ion-content>

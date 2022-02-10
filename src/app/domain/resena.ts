@@ -1,3 +1,5 @@
+import { Usuario } from "./usuario";
+
 export class Resena {
     uid: string;
     idUsuario: string;

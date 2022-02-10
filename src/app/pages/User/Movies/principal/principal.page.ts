@@ -34,6 +34,7 @@ export class PrincipalPage implements OnInit {
 	enviar(idPelicula: any){
 		/*console.log(idPelicula+'==='+this.usuarioID);
 		this.router.navigate(['movie-details'], { queryParams: { id: idPelicula, idUser: this.usuarioID } });*/
+		console.log(idPelicula+'==='+this.usuarioID);
 		let params: NavigationExtras = {
 			queryParams: {
 			  id: idPelicula,

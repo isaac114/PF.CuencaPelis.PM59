@@ -7,9 +7,9 @@
 <ion-content>
 
   <!--<h1>Bienvenido {{contacto | json}}</h1>-->
-  <h1>Bienvenido </h1>
+  <h1>Mis resenas </h1>
   <ion-list>
-    <ion-list-header> Recent Conversations </ion-list-header>
+    <ion-list-header> Mis Resenas </ion-list-header>
 
     <ion-item *ngFor="let resena of resenas | async">
       <ion-avatar slot="start">
@@ -24,5 +24,10 @@
 
     
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button >
+      <ion-icon name="home-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

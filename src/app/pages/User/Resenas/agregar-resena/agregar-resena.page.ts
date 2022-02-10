@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Resena } from 'src/app/domain/resena';
+import { Usuario } from 'src/app/domain/usuario';
 import { PeliculaService } from 'src/app/services/movies/pelicula.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class AgregarResenaPage implements OnInit {
   titulo: string;
   imagen: string;
   information = null;
+  usuario: Usuario = new Usuario();
   resenaPelicula: Resena = new Resena();
 
   constructor(private infoService: PeliculaService,
@@ -29,7 +31,8 @@ export class AgregarResenaPage implements OnInit {
       if(this.router.getCurrentNavigation().extras.queryParams){
 			  this.idPelicula = this.router.getCurrentNavigation().extras.queryParams.id;
 			  this.idUsuario = this.router.getCurrentNavigation().extras.queryParams.idUser;
-        console.log('AgregarResena ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.idUsuario);
+        this.usuario = this.router.getCurrentNavigation().extras.queryParams.usuario;
+        console.log('AgregarResena ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.usuario.uid);
 			}
 		  })
 
@@ -40,13 +43,13 @@ export class AgregarResenaPage implements OnInit {
   }
 
   saveResena(){
-    console.log('ID USUARIO:=>'+this.idUsuario);
+    console.log('ID USUARIO:=>'+this.usuario.uid);
     console.log('ID MOVIE:=>'+this.idPelicula);
     console.log('RESENA:=>'+this.resena);
     console.log('TITULO PELICULA:=>'+this.information.Title);
     console.log('IMAGEN:=>'+this.information.Poster);
     this.resenaPelicula.uid = null;
-    this.resenaPelicula.idUsuario = this.idUsuario
+    this.resenaPelicula.idUsuario = this.idUsuario;
     this.resenaPelicula.idPelicula = this.idPelicula;
     this.resenaPelicula.title =this.information.Title;
     this.resenaPelicula.poster = this.information.Poster;
@@ -57,6 +60,7 @@ export class AgregarResenaPage implements OnInit {
 			queryParams: {
 			  idPelicula: this.idPelicula,
 			  idUsuario: this.idUsuario,
+        usuario: this.usuario
 			}
 		}
 		this.router.navigate(['listar-resenas'],params)

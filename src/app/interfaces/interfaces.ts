@@ -39,3 +39,9 @@ export interface OmdbSearchResult {
     Source: string;
     Value: string;
   }
+
+
+  export interface UsuarioInterface {
+    uid: string;
+    displayName: string;
+  }
