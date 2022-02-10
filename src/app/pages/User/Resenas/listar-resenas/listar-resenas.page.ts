@@ -34,8 +34,10 @@ export class ListarResenasPage implements OnInit {
 
   ngOnInit() {
     this.resenas = this.infoService.getMisResenas(this.idUsuario);
-    console.log('RESENAS DEL USUARIO:=>'+this.idUsuario);
-    console.log('RESULTADOS:=>'+this.resenas);
+    //console.log('RESENAS DEL USUARIO:=>'+this.idUsuario);
+    //console.log('RESULTADOS:=>'+this.resenas);
   }
+
+  
 
 }

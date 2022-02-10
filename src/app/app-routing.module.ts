@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'listar-resenas',
     loadChildren: () => import('./pages/User/Resenas/listar-resenas/listar-resenas.module').then( m => m.ListarResenasPageModule)
+  },
+  {
+    path: 'ver-comentar-resena',
+    loadChildren: () => import('./pages/User/Resenas/ver-comentar-resena/ver-comentar-resena.module').then( m => m.VerComentarResenaPageModule)
   }
 
 

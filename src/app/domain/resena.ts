@@ -6,6 +6,6 @@ export class Resena {
     idPelicula: string;
     title: string;
     poster: string;
-    comentario: string;
+    comentario: string;///Hace referencia al contenido de la referencia
     valoracion: number;
 }

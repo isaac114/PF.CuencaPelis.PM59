@@ -57,7 +57,7 @@
       <ion-avatar slot="start">
         <img [src]="resena.poster" *ngIf="resena.poster != 'N/A'" />
       </ion-avatar>
-      <ion-label >
+      <ion-label (click)="verResena(resena.uid,resena.comentario,resena.idPelicula,resena.idUsuario,resena.poster,resena.title,resena.valoracion)">
         <h2>{{ resena.title }}</h2>
         <h3>{{ resena.valoracion }}</h3>
         <p>{{ resena.comentario }}</p>

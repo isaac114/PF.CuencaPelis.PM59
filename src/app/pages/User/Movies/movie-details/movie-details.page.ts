@@ -18,6 +18,7 @@ export class MovieDetailsPage implements OnInit {
   idPelicula: any;
   idUsuario: any;
   usuario: Usuario = new Usuario();
+  r: Resena = new Resena();
   resena: Resena;
   resenas: any;
 
@@ -60,9 +61,41 @@ export class MovieDetailsPage implements OnInit {
     });
 
     this.resenas = this.resenaServe.resenasPeliculas(this.idPelicula);
-    console.log(this.resenas);
+    //console.log(this.resenas);
     
 
+  }
+
+  verResena(uid: string, com: string, ip: string, iu: string, post: string, tit: string, val: number){
+    this.r.uid = uid;
+    this.r.comentario = com;
+    this.r.idPelicula = ip;
+    this.r.idUsuario = iu;
+    this.r.poster = post;
+    this.r.title = tit;
+    this.r.valoracion = val;
+
+    let params: NavigationExtras = {
+			queryParams: {
+			  id: this.idPelicula,
+			  idUser: this.idUsuario,
+        usuario: this.usuario,
+        resena: this.r,
+			}
+		}
+		 
+		this.router.navigate(['ver-comentar-resena'],params);
+    
+
+    //console.log('Datos Listos'+this.r.uid);
+    //console.log('Datos Listos'+this.r.comentario);
+    //console.log('Datos Listos'+this.r.idPelicula);
+    //console.log('Datos Listos'+this.r.idUsuario);
+    //console.log('Datos Listos'+this.r.poster);
+    //console.log('Datos Listos'+this.r.title);
+    //console.log('Datos Listos'+this.r.valoracion);
+
+    //console.log('Datos Listos'+this.usuario.uid);
   }
 
   enviarResena(){

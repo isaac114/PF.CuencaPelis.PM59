@@ -43,11 +43,11 @@ export class AgregarResenaPage implements OnInit {
   }
 
   saveResena(){
-    console.log('ID USUARIO:=>'+this.usuario.uid);
-    console.log('ID MOVIE:=>'+this.idPelicula);
-    console.log('RESENA:=>'+this.resena);
-    console.log('TITULO PELICULA:=>'+this.information.Title);
-    console.log('IMAGEN:=>'+this.information.Poster);
+    //console.log('ID USUARIO:=>'+this.usuario.uid);
+    //console.log('ID MOVIE:=>'+this.idPelicula);
+    //console.log('RESENA:=>'+this.resena);
+    //console.log('TITULO PELICULA:=>'+this.information.Title);
+    //console.log('IMAGEN:=>'+this.information.Poster);
     this.resenaPelicula.uid = null;
     this.resenaPelicula.idUsuario = this.idUsuario;
     this.resenaPelicula.idPelicula = this.idPelicula;
