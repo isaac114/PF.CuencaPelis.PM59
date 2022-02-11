@@ -14,6 +14,7 @@ export class PrincipalPage implements OnInit {
 	searchTerm: "";
 	type: SearchType = SearchType.all;
 	usuarioID: string;
+	user: any;
 
 	constructor(private infoService: PeliculaService,
 		private router: Router,
@@ -25,20 +26,53 @@ export class PrincipalPage implements OnInit {
 			//this.nombre = params.nombre;
 	  
 			if(this.router.getCurrentNavigation().extras.queryParams){
-			  this.usuarioID = this.router.getCurrentNavigation().extras.queryParams.id;
-			  console.log('Seccion PaginaPrincipal-->UsuarioID: '+this.usuarioID);
+			  this.usuarioID = this.router.getCurrentNavigation().extras.queryParams.id.uid;
+			  this.user = this.router.getCurrentNavigation().extras.queryParams.id;
+			  console.log('Seccion PaginaPrincipal-->UsuarioID: '+this.user.uid);
 			}
 		  })
 	}
+	prueba(){
+		console.log("PruebaClick");
+	}
+
+	menu(item: string){
+		if(item == "perfil"){
+			console.log("perfil");
+		}
+		if(item == "resenas"){
+			console.log("resenas");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['listar-resenas'],params);
+		}
+		if(item == "lugares"){
+			console.log("lugares");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['mapa']);
+		}
+	}
 
 	enviar(idPelicula: any){
-		/*console.log(idPelicula+'==='+this.usuarioID);
+		/*console.log(idPelicula+'==='+this.usuarioID);mapa
 		this.router.navigate(['movie-details'], { queryParams: { id: idPelicula, idUser: this.usuarioID } });*/
 		//console.log(idPelicula+'==='+this.usuarioID);
 		let params: NavigationExtras = {
 			queryParams: {
 			  id: idPelicula,
 			  idUser: this.usuarioID,
+			  user: this.user,
 			}
 		  }
 		 

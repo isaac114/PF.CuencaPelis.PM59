@@ -32,7 +32,7 @@ export class AuthGoogleService {
         //console.log(userr.uid);
         this.loginGoogle();
         this.updateDtaUser(userr);
-        resolve(this.credential);
+        resolve(userr);
         
       }).catch(err => rejected(err));
     });   

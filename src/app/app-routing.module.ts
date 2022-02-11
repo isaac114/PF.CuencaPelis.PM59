@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'movie-details',
     loadChildren: () => import('./pages/User/Movies/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
-  },  {
+  },
+  {
     path: 'agregar-resena',
     loadChildren: () => import('./pages/User/Resenas/agregar-resena/agregar-resena.module').then( m => m.AgregarResenaPageModule)
   },
@@ -37,7 +38,13 @@ const routes: Routes = [
   {
     path: 'ver-comentar-resena',
     loadChildren: () => import('./pages/User/Resenas/ver-comentar-resena/ver-comentar-resena.module').then( m => m.VerComentarResenaPageModule)
+  },
+ 
+  {
+    path: 'mapa',
+    loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
   }
+
 
 
 

@@ -21,6 +21,7 @@ export class MovieDetailsPage implements OnInit {
   r: Resena = new Resena();
   resena: Resena;
   resenas: any;
+  user: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,8 +42,8 @@ export class MovieDetailsPage implements OnInit {
 			if(this.router.getCurrentNavigation().extras.queryParams){
 			  this.idPelicula = this.router.getCurrentNavigation().extras.queryParams.id;
 			  this.idUsuario = this.router.getCurrentNavigation().extras.queryParams.idUser;
-        
-        console.log('Movie Details ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.idUsuario);
+        this.user = this.router.getCurrentNavigation().extras.queryParams.user;
+        console.log('Movie Details ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.user.uid);
 			}
 		  })
 
@@ -112,6 +113,26 @@ export class MovieDetailsPage implements OnInit {
 		this.router.navigate(['agregar-resena'],params);
     
   }
+
+  menu(item: string){
+		if(item == "perfil"){
+			console.log("perfil");
+		}
+		if(item == "resenas"){
+			console.log("resenas");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['listar-resenas'],params);
+		}
+		if(item == "lugares"){
+			console.log("lugares");
+		}
+	}
 
   openWebsite() {
     console.log('Open Wesiteeee');

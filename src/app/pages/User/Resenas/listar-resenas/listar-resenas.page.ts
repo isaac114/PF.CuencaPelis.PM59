@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Resena } from 'src/app/domain/resena';
 import { Usuario } from 'src/app/domain/usuario';
 import { PeliculaService } from 'src/app/services/movies/pelicula.service';
@@ -15,6 +15,7 @@ export class ListarResenasPage implements OnInit {
   usuario: Usuario;
   resena: Resena;
   resenas: any;
+  user: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -27,6 +28,7 @@ export class ListarResenasPage implements OnInit {
           this.idPelicula = this.router.getCurrentNavigation().extras.queryParams.idPelicula;
           this.idUsuario = this.router.getCurrentNavigation().extras.queryParams.idUsuario;
           this.usuario = this.router.getCurrentNavigation().extras.queryParams.usuario;
+          this.user = this.usuario;
           console.log('ListarMisResenas ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.usuario.uid);
         }
       }) 
@@ -37,7 +39,25 @@ export class ListarResenasPage implements OnInit {
     //console.log('RESENAS DEL USUARIO:=>'+this.idUsuario);
     //console.log('RESULTADOS:=>'+this.resenas);
   }
-
+  menu(item: string){
+		if(item == "perfil"){
+			console.log("perfil");
+		}
+		if(item == "resenas"){
+			console.log("resenas");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['listar-resenas'],params);
+		}
+		if(item == "lugares"){
+			console.log("lugares");
+		}
+	}
   
 
 }

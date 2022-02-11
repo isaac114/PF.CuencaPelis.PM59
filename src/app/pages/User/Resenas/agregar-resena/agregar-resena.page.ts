@@ -18,6 +18,7 @@ export class AgregarResenaPage implements OnInit {
   information = null;
   usuario: Usuario = new Usuario();
   resenaPelicula: Resena = new Resena();
+  user: any;
 
   constructor(private infoService: PeliculaService,
 		private router: Router,
@@ -32,6 +33,7 @@ export class AgregarResenaPage implements OnInit {
 			  this.idPelicula = this.router.getCurrentNavigation().extras.queryParams.id;
 			  this.idUsuario = this.router.getCurrentNavigation().extras.queryParams.idUser;
         this.usuario = this.router.getCurrentNavigation().extras.queryParams.usuario;
+        this.user = this.usuario;
         console.log('AgregarResena ======> ID MOVIE: '+this.idPelicula+'ID User: '+this.usuario.uid);
 			}
 		  })
@@ -65,5 +67,25 @@ export class AgregarResenaPage implements OnInit {
 		}
 		this.router.navigate(['listar-resenas'],params)
   }
+
+  menu(item: string){
+		if(item == "perfil"){
+			console.log("perfil");
+		}
+		if(item == "resenas"){
+			console.log("resenas");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['listar-resenas'],params);
+		}
+		if(item == "lugares"){
+			console.log("lugares");
+		}
+	}
 
 }

@@ -23,6 +23,7 @@ export class VerComentarResenaPage implements OnInit {
   coment: Comentario = new Comentario();
   c: Comentario;
   comentarios: any;
+  user: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,6 +45,7 @@ export class VerComentarResenaPage implements OnInit {
 			  this.idUsuario = this.router.getCurrentNavigation().extras.queryParams.idUser;
         this.usuario = this.router.getCurrentNavigation().extras.queryParams.usuario;
         this.information = this.router.getCurrentNavigation().extras.queryParams.resena;
+        this.user = this.usuario;
         
         console.log('Ver Resenas Comentar ======> ID MOVIE: '+this.information.idPelicula+'ID User: '+this.information.idUsuario);
 			}
@@ -74,5 +76,24 @@ export class VerComentarResenaPage implements OnInit {
 		this.comentarioServe.save(this.coment);
 		this.router.navigate(['ver-comentar-resena'],params);
   }
+  menu(item: string){
+		if(item == "perfil"){
+			console.log("perfil");
+		}
+		if(item == "resenas"){
+			console.log("resenas");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['listar-resenas'],params);
+		}
+		if(item == "lugares"){
+			console.log("lugares");
+		}
+	}
 
 }
