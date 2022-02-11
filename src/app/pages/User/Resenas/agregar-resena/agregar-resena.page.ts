@@ -68,9 +68,28 @@ export class AgregarResenaPage implements OnInit {
 		this.router.navigate(['listar-resenas'],params)
   }
 
+  home(){
+	let params: NavigationExtras = {
+		queryParams: {
+			idPelicula: "Redirecto",
+			idUsuario: this.user.uid,
+			usuario: this.user
+		}
+	}
+	this.router.navigate(['principal'],params);
+  }
+
   menu(item: string){
 		if(item == "perfil"){
 			console.log("perfil");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['perfil'],params);
 		}
 		if(item == "resenas"){
 			console.log("resenas");
@@ -85,6 +104,14 @@ export class AgregarResenaPage implements OnInit {
 		}
 		if(item == "lugares"){
 			console.log("lugares");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['mapa'],params);
 		}
 	}
 

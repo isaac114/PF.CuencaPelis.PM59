@@ -76,9 +76,29 @@ export class VerComentarResenaPage implements OnInit {
 		this.comentarioServe.save(this.coment);
 		this.router.navigate(['ver-comentar-resena'],params);
   }
+
+  home(){
+	let params: NavigationExtras = {
+		queryParams: {
+			idPelicula: "Redirecto",
+			idUsuario: this.user.uid,
+			usuario: this.user
+		}
+	}
+	this.router.navigate(['principal'],params);
+  }
+
   menu(item: string){
 		if(item == "perfil"){
 			console.log("perfil");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['perfil'],params);
 		}
 		if(item == "resenas"){
 			console.log("resenas");
@@ -93,6 +113,14 @@ export class VerComentarResenaPage implements OnInit {
 		}
 		if(item == "lugares"){
 			console.log("lugares");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['mapa'],params);
 		}
 	}
 

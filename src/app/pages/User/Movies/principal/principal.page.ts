@@ -39,6 +39,14 @@ export class PrincipalPage implements OnInit {
 	menu(item: string){
 		if(item == "perfil"){
 			console.log("perfil");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['perfil'],params);
 		}
 		if(item == "resenas"){
 			console.log("resenas");
@@ -60,7 +68,7 @@ export class PrincipalPage implements OnInit {
 					usuario: this.user
 				}
 			}
-			this.router.navigate(['mapa']);
+			this.router.navigate(['mapa'],params);
 		}
 	}
 

@@ -117,6 +117,14 @@ export class MovieDetailsPage implements OnInit {
   menu(item: string){
 		if(item == "perfil"){
 			console.log("perfil");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['perfil'],params);
 		}
 		if(item == "resenas"){
 			console.log("resenas");
@@ -131,11 +139,25 @@ export class MovieDetailsPage implements OnInit {
 		}
 		if(item == "lugares"){
 			console.log("lugares");
+			let params: NavigationExtras = {
+				queryParams: {
+					idPelicula: "Redirecto",
+					idUsuario: this.user.uid,
+					usuario: this.user
+				}
+			}
+			this.router.navigate(['mapa'],params);
 		}
 	}
 
-  openWebsite() {
-    console.log('Open Wesiteeee');
-    window.open(this.information.Website, "_blank");
-  }
+  home(){
+    let params: NavigationExtras = {
+      queryParams: {
+        idPelicula: "Redirecto",
+        idUsuario: this.user.uid,
+        usuario: this.user
+      }
+    }
+    this.router.navigate(['principal'],params);
+    }
 }

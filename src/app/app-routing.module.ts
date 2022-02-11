@@ -43,7 +43,12 @@ const routes: Routes = [
   {
     path: 'mapa',
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/User/usuario/perfil/perfil.module').then( m => m.PerfilPageModule)
   }
+
 
 
 
