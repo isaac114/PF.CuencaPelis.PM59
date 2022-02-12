@@ -8,6 +8,17 @@
 
 	<div>
 		<ion-tem>
+			<ion-label>
+				Agregar imagen
+			</ion-label>
+			<ion-buttons slot="end">
+				<ion-button>
+					<label for="file-upload">
+						<ion-icon slot="icon-only" name="images"></ion-icon>
+					</label>
+					<input id="file-upload" style="display: none" type="file" accept="image/*">
+				</ion-button>
+			</ion-buttons>
 				<ion-card>
 				  <img src="{{user.photoURL}}" />
 				</ion-card>
