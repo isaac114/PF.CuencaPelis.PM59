@@ -3,10 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="principal"></ion-back-button>
     </ion-buttons>
-    <ion-title>Registro</ion-title>
+    <ion-title>Registrar nuevo Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <div id="header">
+    <img [src]="" />
+  </div>
+  <form id="formulario_registro" >
+    
+    <ion-buttons slot="secondary">
+      <ion-label id="label"><p id="txtP">Agregar Fotografia:</p></ion-label>
+      <ion-button  id="btnCamera"><ion-icon name="camera"></ion-icon></ion-button>
+    </ion-buttons>    
+    <ion-input id="inputNombre" clearInput="true" placeholder="Nombre" type="text" name="nombre"></ion-input>
+    <ion-input id="inputApellido" clearInput="true" placeholder="Apellido" type="text" name="apellido"></ion-input>
+    <ion-input id="inputDireccion" clearInput="true" placeholder="Dirección" type="text"  name="direccion"></ion-input>
+    <ion-input id="inputCorreo" clearInput="true" placeholder="Correo" type="text"  name="correo"></ion-input>
+    <ion-input id="inputPassword" clearInput="true" placeholder="Contraseña" type="password" name="contrasena"></ion-input>
+    <ion-button id="btnReg" type="submit" expand="block" shape="round">Registrarse</ion-button>
+    <ion-button id="btnCan" expand="block" shape="round" >Cancelar</ion-button>
+  </form>
 
 
 </ion-content>
