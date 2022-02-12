@@ -1,3 +1,4 @@
+import { FirestorageService } from './../../../../services/fire/firestorage.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { PeliculaService } from 'src/app/services/movies/pelicula.service';
@@ -11,10 +12,12 @@ export class PerfilPage implements OnInit {
   user: any;
   nombre: string;
   correo: string;
+  newima= '';
 
   constructor(private infoService: PeliculaService,
 		private router: Router,
-    	private route: ActivatedRoute) { }
+    	private route: ActivatedRoute,
+		private fire: FirestorageService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -77,6 +80,15 @@ export class PerfilPage implements OnInit {
 				}
 			}
 			this.router.navigate(['mapa'],params);
+		}
+	}
+	newIma(event: any){
+		if(event.target.files && event.target.file[0]){
+			const reader=new FileReader();
+			reader.onload = ((image) =>{
+				this.newima = image.target.result as string;
+			});
+			reader.readAsDataURL(event.target.files[0]);
 		}
 	}
 

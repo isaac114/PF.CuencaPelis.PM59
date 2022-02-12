@@ -19,6 +19,10 @@
 					<input (change)="newIma($event)" id="file-upload" style="display: none" type="file" accept="image/*">
 				</ion-button>
 			</ion-buttons>
+			<ion-item>
+				<img [src]="newima">
+			</ion-item>
+			
 				<ion-card>
 				  <img src="{{user.photoURL}}" />
 				</ion-card>
