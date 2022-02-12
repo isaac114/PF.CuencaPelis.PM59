@@ -1,7 +1,13 @@
+
 <ion-header [translucent]="true">
 	<ion-toolbar>
 	  <ion-buttons slot="start">
 		<ion-menu-button></ion-menu-button>
+	  </ion-buttons>
+	  <ion-buttons slot="secondary">
+		<ion-button routerLink="/registrar">
+			<ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
+		</ion-button>
 	  </ion-buttons>
 	  <ion-title> Cuenca Pelis+</ion-title>
 	</ion-toolbar>
@@ -31,7 +37,7 @@
 			
 		>
 			<ion-avatar slot="start">
-				<img [src]="item.Poster" *ngIf="item.Poster != 'N/A'" />
+				<img [src]="item.Poster" *ngIf="item.Poster !== 'N/A'" />
 			</ion-avatar>
 
 			<ion-label text-wrap>
@@ -41,13 +47,13 @@
 
 			<ion-icon
 				slot="end"
-				*ngIf="item.Type == 'movie'"
+				*ngIf="item.Type === 'movie'"
 				name="videocam-outline"
 			></ion-icon>
-			<ion-icon slot="end" *ngIf="item.Type == 'series'" name="tv-outline"></ion-icon>
+			<ion-icon slot="end" *ngIf="item.Type === 'series'" name="tv-outline"></ion-icon>
 			<ion-icon
 				slot="end"
-				*ngIf="item.Type == 'game'"
+				*ngIf="item.Type === 'game'"
 				name="logo-game-controller-outline"
 			></ion-icon>
 		</ion-item>

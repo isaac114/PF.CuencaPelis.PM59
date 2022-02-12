@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'listar-resenas',
     loadChildren: () => import('./pages/User/Resenas/listar-resenas/listar-resenas.module').then( m => m.ListarResenasPageModule)
+  },
+  {
+    path: 'registrar',
+    loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
   }
 
 
