@@ -6,6 +6,24 @@
 
 <ion-content>
 
+	<div>
+		<ion-tem>
+				<ion-card>
+				  <img src="{{user.photoURL}}" />
+				</ion-card>
+		</ion-tem>
+		<ion-item>
+			<div>
+				<ion-label position="stacked">Nombres</ion-label>
+				<ion-input placeholder="{{user.displayName}}" [(ngModel)]="nombre"></ion-input>
+			</div>
+			<div>
+				<ion-label position="stacked">Correo</ion-label>
+				<ion-input placeholder="{{user.email}}" [(ngModel)]="correo"></ion-input>
+			</div>
+		</ion-item>
+	</div>
+
 	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
 		<ion-fab-button (click)="home()">
 		  <ion-icon name="home-sharp"></ion-icon>

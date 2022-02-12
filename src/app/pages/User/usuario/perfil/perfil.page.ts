@@ -9,6 +9,8 @@ import { PeliculaService } from 'src/app/services/movies/pelicula.service';
 })
 export class PerfilPage implements OnInit {
   user: any;
+  nombre: string;
+  correo: string;
 
   constructor(private infoService: PeliculaService,
 		private router: Router,
@@ -36,6 +38,11 @@ export class PerfilPage implements OnInit {
 	}
 	this.router.navigate(['principal'],params);
   }
+
+  editar(){
+	  console.log(this.correo+'---'+this.nombre);
+  }
+
 
   menu(item: string){
 		if(item == "perfil"){
