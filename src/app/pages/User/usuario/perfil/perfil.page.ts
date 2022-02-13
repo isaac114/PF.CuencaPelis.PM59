@@ -82,14 +82,21 @@ export class PerfilPage implements OnInit {
 			this.router.navigate(['mapa'],params);
 		}
 	}
-	newImagePerfil(event: any){
-		if(event.target.files && event.target.files[0]){
-			const reader=new FileReader();
-			reader.onload = ((image) =>{
-				this.newImage = image.target.result as string;
-			});
-			reader.readAsDataURL(event.target.files[0]);
-		}
+	async newImagePerfil(event: any){
+	//	if(event.target.files && event.target.file[0]){
+	//		const reader=new FileReader();
+	//		reader.onload = ((image) =>{
+	//			this.newImage = image.target.result as string;
+	//		});
+	//		reader.readAsDataURL(event.target.files[0]);
+	//	}
+	const path = 'PerfilUsuario';
+	const name = 'prueba';
+	const file = event.target.files[0];
+	const res = await this.fire.guardarIma(file,path,name);
+	console.log('promesa recivida', res);
+	console.log('fin de guardar el archivo');
+
 	}
 
 }
