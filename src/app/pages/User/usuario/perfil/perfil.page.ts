@@ -12,7 +12,7 @@ export class PerfilPage implements OnInit {
   user: any;
   nombre: string;
   correo: string;
-  newima= '';
+  newImage= '';
 
   constructor(private infoService: PeliculaService,
 		private router: Router,
@@ -82,11 +82,11 @@ export class PerfilPage implements OnInit {
 			this.router.navigate(['mapa'],params);
 		}
 	}
-	newIma(event: any){
-		if(event.target.files && event.target.file[0]){
+	newImagePerfil(event: any){
+		if(event.target.files && event.target.files[0]){
 			const reader=new FileReader();
 			reader.onload = ((image) =>{
-				this.newima = image.target.result as string;
+				this.newImage = image.target.result as string;
 			});
 			reader.readAsDataURL(event.target.files[0]);
 		}

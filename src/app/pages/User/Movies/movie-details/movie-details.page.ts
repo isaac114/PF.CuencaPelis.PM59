@@ -85,7 +85,7 @@ export class MovieDetailsPage implements OnInit {
 			}
 		}
 		 
-		this.router.navigate(['/pages/User/Resenas/ver-comentar-resena'],params);
+		this.router.navigate(['ver-comentar-resena'],params);
     
 
     //console.log('Datos Listos'+this.r.uid);
@@ -110,7 +110,7 @@ export class MovieDetailsPage implements OnInit {
 			}
 		}
 		 
-		this.router.navigate(['/pages/User/Resenas/agregar-resena'],params);
+		this.router.navigate(['agregar-resena'],params);
     
   }
 

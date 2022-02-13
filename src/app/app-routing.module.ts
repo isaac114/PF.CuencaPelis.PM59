@@ -40,7 +40,6 @@ const routes: Routes = [
     path: 'ver-comentar-resena',
     loadChildren: () => import('./pages/User/Resenas/ver-comentar-resena/ver-comentar-resena.module').then( m => m.VerComentarResenaPageModule)
   },
- 
   {
     path: 'mapa',
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
