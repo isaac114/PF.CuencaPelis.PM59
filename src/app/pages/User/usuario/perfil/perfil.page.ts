@@ -1,3 +1,4 @@
+import { FirestorageService } from './../../../../services/fire/firestorage.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { PeliculaService } from 'src/app/services/movies/pelicula.service';
@@ -11,10 +12,13 @@ export class PerfilPage implements OnInit {
   user: any;
   nombre: string;
   correo: string;
+  newImage= '';
+  const1 = 1;
 
   constructor(private infoService: PeliculaService,
 		private router: Router,
-    	private route: ActivatedRoute) { }
+    	private route: ActivatedRoute,
+		private fire: FirestorageService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -78,6 +82,22 @@ export class PerfilPage implements OnInit {
 			}
 			this.router.navigate(['mapa'],params);
 		}
+	}
+	async newImagePerfil(event: any){
+	//	if(event.target.files && event.target.file[0]){
+	//		const reader=new FileReader();
+	//		reader.onload = ((image) =>{
+	//			this.newImage = image.target.result as string;
+	//		});
+	//		reader.readAsDataURL(event.target.files[0]);
+	//	}
+	const path = 'PerfilUsuario';
+	const name = this.user.email;
+	const file = event.target.files[0];
+	const res = await this.fire.guardarIma(file,path,name);
+	console.log('promesa recivida', res);
+	console.log('fin de guardar el archivo');
+
 	}
 
 }

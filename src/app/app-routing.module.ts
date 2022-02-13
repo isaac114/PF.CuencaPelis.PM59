@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pages/login',
+    redirectTo: 'principal',
     pathMatch: 'full'
   },
   {
@@ -39,7 +40,6 @@ const routes: Routes = [
     path: 'ver-comentar-resena',
     loadChildren: () => import('./pages/User/Resenas/ver-comentar-resena/ver-comentar-resena.module').then( m => m.VerComentarResenaPageModule)
   },
- 
   {
     path: 'mapa',
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
