@@ -13,6 +13,7 @@ export class PerfilPage implements OnInit {
   nombre: string;
   correo: string;
   newImage= '';
+  const1 = 1;
 
   constructor(private infoService: PeliculaService,
 		private router: Router,
@@ -91,7 +92,7 @@ export class PerfilPage implements OnInit {
 	//		reader.readAsDataURL(event.target.files[0]);
 	//	}
 	const path = 'PerfilUsuario';
-	const name = 'prueba';
+	const name = this.user.email;
 	const file = event.target.files[0];
 	const res = await this.fire.guardarIma(file,path,name);
 	console.log('promesa recivida', res);
