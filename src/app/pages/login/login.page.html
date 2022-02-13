@@ -10,7 +10,21 @@
 <ion-content>
 
   <!--Inputs Entrada de datos  Correo y Contrasena-->
-  <div id="espacio">
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+        </ion-col>
+        <ion-col size="7">
+          <div >
+            <img id="imagenLogin" src="https://img.icons8.com/external-flat-icons-inmotus-design/67/000000/external-avatar-messenger-flat-icons-inmotus-design.png"/>
+          </div>
+        </ion-col>
+        <ion-col size="3"> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <div id="centrarInput">
       <ion-item>
         <ion-label position="floating">Correo</ion-label>
@@ -30,10 +44,25 @@
   <div id="centrarBoton">
     <ion-button  expand="block" color="danger" (click)="validarUsuario()">Log In</ion-button>
   </div>
-  <div id="centrarBoton">
-    <ion-button  expand="block" color="danger" (click)="onSubmitLogin()">Log In with Google</ion-button>
+  <div >
+    <ion-grid >
+      <ion-row>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+         <div >
+          <img class="google" (click)="onSubmitLogin()" src="https://cdn-icons.flaticon.com/png/512/2875/premium/2875435.png?token=exp=1644792790~hmac=b9fbd7b10cf14e2926c97a02348242ab">
+          
+         </div>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </div>
   
-  
+ 
+
 
 </ion-content>
