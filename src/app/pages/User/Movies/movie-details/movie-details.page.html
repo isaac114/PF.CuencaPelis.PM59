@@ -9,15 +9,19 @@
 
 <ion-content padding>
   <ion-card *ngIf="information">
-    <ion-card-header>
-      <ion-card-title> {{ information.Title }} </ion-card-title>
-      <ion-card-subtitle> {{ information.Year }} </ion-card-subtitle>
-    </ion-card-header>
+    <div></div>
 
     <ion-card-content text-center>
       <img [src]="information.Poster" class="info-img" />
-      {{ information.Plot }}
 
+
+      <ion-card-header>
+        <ion-card-title> {{ information.Title }} </ion-card-title>
+        <ion-card-subtitle>Fecha de Lanzamiento:  {{ information.Year }} </ion-card-subtitle>
+        <ion-card-subtitle>Resumen:  {{ information.Plot }} </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-title> Informacion Adicional:</ion-card-title>
       <ion-item lines="none">
         <ion-icon name="star-half" slot="start"></ion-icon>
         <ion-label>{{ information.imdbRating }}</ion-label>
@@ -58,7 +62,7 @@
   
 
   <ion-list>
-    <ion-list-header> Resenas </ion-list-header>
+    <ion-card-title> Lista de Resenas</ion-card-title>
 
     <ion-item *ngFor="let resena of resenas | async">
       <ion-avatar slot="start">
@@ -66,7 +70,6 @@
       </ion-avatar>
       <ion-label (click)="verResena(resena.uid,resena.comentario,resena.idPelicula,resena.idUsuario,resena.poster,resena.title,resena.valoracion)">
         <h2>{{ resena.title }}</h2>
-        <h3>{{ resena.valoracion }}</h3>
         <p>{{ resena.comentario }}</p>
       </ion-label>
     </ion-item>
@@ -79,17 +82,18 @@
 </ion-content>
 
 <ion-footer>
-	<ion-toolbar>
+	<ion-toolbar >
 		<ion-grid>
-			<ion-row>
-        <ion-col>
-				<div><ion-button color="light" (click)="menu('/pages/User/usuario/perfil')"><ion-icon name="person-outline"></ion-icon></ion-button></div>
+			<ion-row > 
+			  <ion-col  >
+				<div><ion-button  color="light" (click)="menu('perfil')" id="boton"><ion-icon (click)="menu('perfil')" name="person-outline"></ion-icon></ion-button></div>
 			  </ion-col>
 			  <ion-col>
-				<div><ion-button color="light" (click)="menu('/pages/User/Resenas/listar-resenas')"><ion-icon name="reader-outline"></ion-icon></ion-button></div>
+				<div ><ion-button color="light" (click)="menu('resenas')" id="boton"><ion-icon name="reader-outline"></ion-icon></ion-button></div>
 			  </ion-col>
 			  <ion-col>
-				<div><ion-button color="light" (click)="menu('lugares')"><ion-icon name="pin-outline"></ion-icon></ion-button></div>
+				<div 
+				><ion-button  color="light" (click)="menu('lugares')" id="boton"><ion-icon name="pin-outline"></ion-icon></ion-button></div>
 			  </ion-col>
 			</ion-row>
 			
